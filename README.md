@@ -1,4 +1,3 @@
-# zb64
+# zb64/lib
 
-zip-base64-encoder/decoder for your simple text.
-
+core library providing zip-base64-encoder/decoder.

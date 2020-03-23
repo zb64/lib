@@ -6,7 +6,6 @@ GOCLEAN=$(GOCMD) clean
 GOTEST=$(GOCMD) test
 GODOC=$(GOCMD) doc
 GOGET=$(GOCMD) get
-BINARY=lib
 
 all: fmt build test bench doc
 ci: build test bench
@@ -30,5 +29,3 @@ testdev:
 	$(GOTEST) -race -short -cover -covermode=atomic -count 1 .
 bench:
 	$(GOTEST) -parallel=4 -run="none" -benchtime="2s" -benchmem -bench=.
-run: build
-	./$(BINARY)
