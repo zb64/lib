@@ -23,6 +23,7 @@ func newDataFormat(writer newFormatWriterFunc, reader newFormatReaderFunc) *data
 	}
 }
 
+// Encode compresses data using the given compressed data writer, and encodes as base64-encoded result string.
 func (z *dataFormat) Encode(data []byte) (result string, err error) {
 	var buf bytes.Buffer
 	w := z.newWriter(&buf)
@@ -36,6 +37,7 @@ func (z *dataFormat) Encode(data []byte) (result string, err error) {
 	return
 }
 
+// Decode decodes base64-encoded string and decompresses data using the given compressed data reader.
 func (z *dataFormat) Decode(raw string) (result []byte, err error) {
 	var (
 		data   []byte
