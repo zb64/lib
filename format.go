@@ -41,8 +41,8 @@ var LzwMSB = newDataFormat(
 	},
 )
 
-// Noop is a wrapper of plain text format, no compression.
-var Noop = newDataFormat(
+// Plain is a wrapper of plain text format, no compression.
+var Plain = newDataFormat(
 	func(buf io.Writer) io.WriteCloser {
 		return NewPlainWriter(buf)
 	},

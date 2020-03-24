@@ -5,15 +5,15 @@ import (
 )
 
 type PlainWriter struct {
-	w io.Writer
+	writer io.Writer
 }
 
 func NewPlainWriter(w io.Writer) *PlainWriter {
-	return &PlainWriter{w: w}
+	return &PlainWriter{writer: w}
 }
 
 func (w *PlainWriter) Write(p []byte) (n int, err error) {
-	return w.Write(p)
+	return w.writer.Write(p)
 }
 
 func (*PlainWriter) Close() error {
@@ -21,15 +21,15 @@ func (*PlainWriter) Close() error {
 }
 
 type PlainReader struct {
-	r io.Reader
+	reader io.Reader
 }
 
 func NewPlainReader(r io.Reader) *PlainReader {
-	return &PlainReader{r: r}
+	return &PlainReader{reader: r}
 }
 
 func (r *PlainReader) Read(p []byte) (n int, err error) {
-	return r.Read(p)
+	return r.reader.Read(p)
 }
 
 func (*PlainReader) Close() error {

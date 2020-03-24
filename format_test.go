@@ -24,7 +24,7 @@ func TestEncodeAndDecode(t *testing.T) {
 		{"Deflate", Deflate},
 		{"LZW-LSB", LzwLSB},
 		{"LZW-MSB", LzwMSB},
-		{"Noop", Noop},
+		{"Plain", Plain},
 	}
 
 	for _, tt := range tests {
