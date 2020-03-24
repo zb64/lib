@@ -21,16 +21,6 @@ var Deflate = newDataFormat(
 	},
 )
 
-// LzwMSB is a wrapper of Lempel-Ziv-Welch compressed data format using Most Significant Bits, provided by compress/lzw.
-var LzwMSB = newDataFormat(
-	func(buf io.Writer) io.WriteCloser {
-		return lzw.NewWriter(buf, lzw.MSB, lzwLitWidth)
-	},
-	func(buf io.Reader) (io.ReadCloser, error) {
-		return lzw.NewReader(buf, lzw.MSB, lzwLitWidth), nil
-	},
-)
-
 // LzwMSB is a wrapper of Lempel-Ziv-Welch compressed data format using Least Significant Bits, provided by compress/lzw.
 var LzwLSB = newDataFormat(
 	func(buf io.Writer) io.WriteCloser {
@@ -38,5 +28,15 @@ var LzwLSB = newDataFormat(
 	},
 	func(buf io.Reader) (io.ReadCloser, error) {
 		return lzw.NewReader(buf, lzw.LSB, lzwLitWidth), nil
+	},
+)
+
+// LzwMSB is a wrapper of Lempel-Ziv-Welch compressed data format using Most Significant Bits, provided by compress/lzw.
+var LzwMSB = newDataFormat(
+	func(buf io.Writer) io.WriteCloser {
+		return lzw.NewWriter(buf, lzw.MSB, lzwLitWidth)
+	},
+	func(buf io.Reader) (io.ReadCloser, error) {
+		return lzw.NewReader(buf, lzw.MSB, lzwLitWidth), nil
 	},
 )
